@@ -6,9 +6,7 @@ import qrLine from '../images/QR_Line_Group.JPG'
 import { ImCross } from "react-icons/im";
 
 function InsertCoinPopup({
-  showPopUp,
   setshowPopUp,
-  isStart,
   setIsStart,
   indexThisMach,
   setTimeCounter
@@ -37,7 +35,7 @@ function InsertCoinPopup({
     } else {
       console.log("Start!");
       setIsStart(true);
-      setTimeCounter(70);
+      setTimeCounter(10);
       setshowPopUp(false)
     }
   };

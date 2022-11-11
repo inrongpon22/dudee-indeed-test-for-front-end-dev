@@ -11,8 +11,6 @@ import Loading from '../Loading'
 function Mach3() {
     //this mach
     const indexThisMach = 2;
-    //progress
-    const [isStart, setIsStart] = useState(false);
     //get data
     const [getNewData, setGetNewData] = useState(undefined);
     //status
@@ -24,7 +22,11 @@ function Mach3() {
 
 
     const handlePopUp = (event) => {
+      if (getNewData[indexThisMach].status === 'unavailable') {
+        alert('This Mach is not available!')
+      }else if(getNewData[indexThisMach].status !== 'unavailable') {
         setshowPopUp(true);
+      }
       };
 
       const getData = async () => {
@@ -67,29 +69,28 @@ function Mach3() {
                 }
               </div>
               <p
-                className={`text-xl font-bold py-3 ${isStart ? "visible" : "invisible"}`}
+                className={`text-xl font-bold py-3`}
               >
                 <Timer
                 timeCounter={timeCounter}
                 setTimeCounter={setTimeCounter}
                 indexThisMach={indexThisMach}
-                setIsStart={setIsStart}
                 setIsPending={setIsPending}
                 />
               </p>
             </div>
-            <button
-              className="self-center bg-sky-400 hover:bg-sky-300 rounded-lg h-1/4 w-1/5 py-3 text-xl font-semibold shadow-lg"
+            {getNewData === undefined ? <Loading /> :
+              <button
+              className={`self-center bg-sky-400 hover:bg-sky-300 rounded-lg h-1/4 w-1/5 py-3 text-xl font-semibold shadow-lg ${getNewData[indexThisMach].status === 'unavailable' ? "cursor-not-allowed" : "cursor-pointer"}`}
               onClick={(event) => handlePopUp(event)}
             >
               Insert Coin!
             </button>
+            }
             {showPopUp && (
               <InsertCoinPopUp
                 showPopUp={showPopUp}
                 setshowPopUp={setshowPopUp}
-                isStart={isStart}
-                setIsStart={setIsStart}
                 setTimeCounter={setTimeCounter}
                 indexThisMach={indexThisMach}
               />

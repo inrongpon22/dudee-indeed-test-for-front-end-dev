@@ -2,7 +2,7 @@ import React from "react";
 
 function Loading() {
   return (
-    <div role="status">
+    <div role="status" className="self-center">
       <svg
         className="inline mr-2 w-10 h-10 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600"
         viewBox="0 0 100 101"
