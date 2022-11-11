@@ -38,18 +38,6 @@ function WashingMachines() {
     getData();
   }, []);
 
-  const handleClick = () => {
-    console.log("clicked!");
-    fetch("http://localhost:5000/api/send-notify", {
-      method: "POST",
-      form: {
-        message: "test from click",
-      },
-    }).catch((err) => {
-      console.log(err);
-    });
-  };
-
   return (
     <main className="flex">
       <Sidebar
@@ -71,7 +59,7 @@ function WashingMachines() {
               Laundry Management System
             </Link>
             <GrFormNext className="self-center" />
-            <span className="hover:cursor-pointer" onClick={handleClick}>
+            <span className="hover:cursor-pointer">
               Washing Machines
             </span>
           </h3>

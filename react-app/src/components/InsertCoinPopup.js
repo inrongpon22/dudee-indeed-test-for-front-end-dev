@@ -24,7 +24,7 @@ function InsertCoinPopup({
   };
 
   const handleStart = () => {
-    fetch("http://localhost:5000/api/update", {
+    fetch("/api/update", {
       method: 'PUT',
       body: JSON.stringify({
         "id": indexThisMach,
@@ -51,7 +51,7 @@ function InsertCoinPopup({
       />
       <section className="font-barlow flex flex-col items-center justify-center lg:w-[30rem] lg:h-[30rem] mt-32 bg-white h-96 rounded-xl overflow-hidden drop-shadow-2xl">
         <h1>Scan QR code to recieve notification!</h1>
-        <img src={qrLine} alt="" className="w-1/2" />
+        <img src={qrLine} alt="" className="sm:w-3/12 md:w-1/4 lg:w-1/2" />
         <p className="font-bold font-barlow">Please insert 20฿ to start!</p>
         <div className="flex justify-center w-full">
           <h3 className="self-center text-center w-28 bg-sky-500 p-10 text-4xl text-white rounded-xl drop-shadow-xl">

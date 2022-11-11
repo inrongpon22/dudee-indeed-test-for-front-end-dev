@@ -18,14 +18,14 @@ function Timer({timeCounter, setTimeCounter, indexThisMach, setIsStart, setIsPen
           setIsPending(true)
         }if(timeCounter === 60) {
           console.log('send notify')
-          fetch("http://localhost:5000/api/send-notify", {
+          fetch("/api/send-notify", {
             method: 'POST'
           })
         }else if(timeCounter < 1){
           console.log('Finish from timer');
           setIsFinish(true);
           //Update status
-          fetch("http://localhost:5000/api/update", {
+          fetch("/api/update", {
             method: 'PUT',
             body: JSON.stringify({
               "id": indexThisMach,
