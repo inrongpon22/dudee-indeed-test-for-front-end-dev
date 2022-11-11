@@ -12,7 +12,9 @@ var app2 = express();
 app2.use(cors({origin:'http://localhost:3000'}));
 app2.use(bodyParser.json());
 app2.use(bodyParser.urlencoded({extended: true}))
-var server = app2.listen(5000, console.log('Server is running on port 5000'))
+
+const PORT = process.env.PORT || 5000
+app2.listen(PORT, console.log(`Server is running on port ${PORT}`))
 
 const firebaseConfig = {
     databaseURL: "https://fir-laundry-company-default-rtdb.firebaseio.com/"
