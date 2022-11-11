@@ -61,7 +61,7 @@ function Dashboard() {
             <GrFormNext className="self-center" />
             <span>Dashboard</span>
           </h3>
-          <div className="grid grid-cols-2 text-white text-xl font-semibold">
+          <div className="grid grid-cols-1 lg:grid-cols-2 text-white text-xl font-semibold">
             <article className="flex py-5 bg-green-400 m-5 items-center rounded-lg">
               <img src={machPic} alt="" className="h-28 w-28" />
               {getNewData === undefined ? (

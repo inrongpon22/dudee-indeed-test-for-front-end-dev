@@ -7,7 +7,7 @@ function Timer({timeCounter, setTimeCounter, indexThisMach, setIsPending}) {
     const [isFinish, setIsFinish] = useState(false)
     
     useEffect(() => {
-      const data = window.localStorage.getItem('SET_COUNT_TIME');
+      const data = window.localStorage.getItem(`SET_COUNT_TIME_${indexThisMach}`);
       if(data !== null) setTimeCounter(parseInt(data))
     }, [])
     
@@ -22,7 +22,7 @@ function Timer({timeCounter, setTimeCounter, indexThisMach, setIsPending}) {
           setSeconds(seconds);
           setIsFinish(false)
           setIsPending(true)
-          window.localStorage.setItem('SET_COUNT_TIME', parseInt(timeCounter))
+          window.localStorage.setItem(`SET_COUNT_TIME_${indexThisMach}`, parseInt(timeCounter))
         }if(timeCounter === 60) {
           console.log('send notify')
           fetch("/api/send-notify", {
@@ -40,8 +40,10 @@ function Timer({timeCounter, setTimeCounter, indexThisMach, setIsPending}) {
             }),
             headers: {'Content-Type': 'application/json'}
           });
-          setIsPending(false)
-          window.localStorage.removeItem('SET_COUNT_TIME')
+          window.localStorage.removeItem(`SET_COUNT_TIME_${indexThisMach}`);
+          setTimeout(() => {
+            setIsPending(false)
+          }, 3000);
         };
   },[timeCounter])
 

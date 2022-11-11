@@ -7,7 +7,6 @@ import { ImCross } from "react-icons/im";
 
 function InsertCoinPopup({
   setshowPopUp,
-  setIsStart,
   indexThisMach,
   setTimeCounter
 }) {
@@ -34,20 +33,19 @@ function InsertCoinPopup({
       alert("Please insert coin!");
     } else {
       console.log("Start!");
-      setIsStart(true);
-      setTimeCounter(10);
+      setTimeCounter(70);
       setshowPopUp(false)
     }
   };
 
 
   return (
-    <main className="absolute flex justify-center z-50 top-0 left-0 bg-black bg-opacity-50 w-screen h-screen">
+    <main className="absolute flex justify-center z-50 top-0 left-0 bg-black bg-opacity-50 w-screen sm:h-[79.25rem] h-screen">
       <ImCross
         className="fill-white w-8 h-8 translate-x-[32rem] translate-y-[5rem] cursor-pointer"
         onClick={() => setshowPopUp(false)}
       />
-      <section className="font-barlow flex flex-col items-center justify-center lg:w-[30rem] lg:h-[30rem] mt-32 bg-white h-96 rounded-xl overflow-hidden drop-shadow-2xl">
+      <section className="font-barlow flex flex-col items-center justify-center sm:w-[28rem] lg:w-[30rem] lg:h-[30rem] mt-32 bg-white h-96 rounded-xl overflow-hidden drop-shadow-2xl">
         <h1>Scan QR code to recieve notification!</h1>
         <img src={qrLine} alt="" className="sm:w-3/12 md:w-1/4 lg:w-1/2" />
         <p className="font-bold font-barlow">Please insert 20฿ to start!</p>

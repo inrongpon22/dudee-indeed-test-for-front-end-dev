@@ -59,7 +59,7 @@ function WashingMachines() {
               Laundry Management System
             </Link>
             <GrFormNext className="self-center" />
-            <span className="hover:cursor-pointer">
+            <span>
               Washing Machines
             </span>
           </h3>

@@ -68,7 +68,7 @@ function Mach5() {
                 }
               </div>
               <p
-                className={`text-xl font-bold py-3`}
+                className={`text-xl font-bold py-3 ${isPending ? 'visible' : 'invisible'}`}
               >
                 <Timer
                 timeCounter={timeCounter}
