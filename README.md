@@ -2,4 +2,4 @@
 
 LIVE preview
 
-https://laundromate-company.herokuapp.com/washing-machines
+https://laundromate-company.herokuapp.com/
